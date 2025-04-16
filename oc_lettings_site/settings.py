@@ -1,6 +1,8 @@
 import os
+import sentry_sdk
 
 from pathlib import Path
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lettings',
+    'profiles'
 ]
 
 MIDDLEWARE = [
@@ -112,3 +116,23 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static",]
+
+
+# Config sentry
+
+sentry_sdk.init(
+    dsn="https://votre-clé-publique@o0.ingest.sentry.io/votre-projet",  # Remplacez par votre DSN Sentry
+    integrations=[DjangoIntegration()],
+    
+    # Définit le pourcentage de transactions à envoyer à Sentry (1.0 = 100%)
+    traces_sample_rate=1.0,
+    
+    # Capture les requêtes échantillonnées
+    profiles_sample_rate=1.0,
+    
+    # Si vous souhaitez associer les utilisateurs aux erreurs
+    send_default_pii=True,
+    
+    # Définir l'environnement (dev, staging, production)
+    environment="development",  # ou "production" en production
+)
