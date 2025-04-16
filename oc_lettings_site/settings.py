@@ -121,7 +121,7 @@ STATICFILES_DIRS = [BASE_DIR / "static",]
 # Config sentry
 
 sentry_sdk.init(
-    dsn="https://votre-clé-publique@o0.ingest.sentry.io/votre-projet",  # Remplacez par votre DSN Sentry
+    dsn="https://505a28f623ff3376de2f4092d8515558@o4509147190460416.ingest.de.sentry.io/4509162976182352",  # Remplacez par votre DSN Sentry
     integrations=[DjangoIntegration()],
     
     # Pourcentage de transactions à envoyer à Sentry (1.0 = 100%)
