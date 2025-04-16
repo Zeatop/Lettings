@@ -124,15 +124,15 @@ sentry_sdk.init(
     dsn="https://votre-clé-publique@o0.ingest.sentry.io/votre-projet",  # Remplacez par votre DSN Sentry
     integrations=[DjangoIntegration()],
     
-    # Définit le pourcentage de transactions à envoyer à Sentry (1.0 = 100%)
+    # Pourcentage de transactions à envoyer à Sentry (1.0 = 100%)
     traces_sample_rate=1.0,
     
-    # Capture les requêtes échantillonnées
+    # Capture les requêtes
     profiles_sample_rate=1.0,
     
-    # Si vous souhaitez associer les utilisateurs aux erreurs
+    # Associer les utilisateurs aux erreurs
     send_default_pii=True,
     
-    # Définir l'environnement (dev, staging, production)
+    # Définir
     environment="development",  # ou "production" en production
 )
