@@ -6,21 +6,18 @@ import sentry_sdk
 # Sed placerat quam in pulvinar commodo. Nullam laoreet consectetur ex,
 # faucibus, urna quis auctor pharetra, massa dolor cursus neque, quis dictum lacus d
 def profiles_index(request):
-    try:
-        profiles_list = Profile.objects.all()
-        context = {'profiles_list': profiles_list}
-        return render(request, 'profiles_index.html', context)
-    except Exception as e:
-        sentry_sdk.capture_exception(e)
+
+    profiles_list = Profile.objects.all()
+    context = {'profiles_list': profiles_list}
+    return render(request, 'profiles_index.html', context)
+
 # Aliquam sed metus eget nisi tincidunt ornare accumsan eget lac
 # laoreet neque quis, pellentesque dui. Nullam facilisis  dolor id facilisis ,
 # it. Nam aliquam dignissim congue. Pellentesque habitant morbi tristique
 
 
 def profile(request, username):
-    try:
-        profile = Profile.objects.get(user__username=username)
-        context = {'profile': profile}
-        return render(request, 'profile.html', context)
-    except Exception as e:
-        sentry_sdk.capture_exception(e)
+
+    profile = Profile.objects.get(user__username=username)
+    context = {'profile': profile}
+    return render(request, 'profile.html', context)
