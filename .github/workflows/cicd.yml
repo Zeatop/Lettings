@@ -1,0 +1,16 @@
+name: CI/CD Workflow
+on:
+  push:
+    branches:
+    - 'master'
+env:
+  my_token: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  test:
+    container:
+      image: 
+  build:
+    needs: test
+    
+  deploymment:
+    needs: build
