@@ -9,11 +9,11 @@ def test_lettings_index_view():
     """Test que la vue lettings_index retourne un statut 200 et contient la liste des locations."""
     # Création du client de test
     client = Client()
-    
+
     # Accès à la vue
     url = reverse('lettings_index')
     response = client.get(url)
-    
+
     # Vérifications
     assert response.status_code == 200
     assert 'lettings_list' in response.context
@@ -31,23 +31,22 @@ def test_letting_detail_view():
         zip_code=12345,
         country_iso_code="USA"
     )
-    
+
     letting = Letting.objects.create(
         title="Test Letting",
         address=address
     )
-    
+
     # Création du client de test
     client = Client()
-    
+
     # Accès à la vue
     url = reverse('letting', kwargs={'letting_id': letting.id})
     response = client.get(url)
-    
+
     # Vérifications
     assert response.status_code == 200
     assert 'title' in response.context
     assert 'address' in response.context
     assert response.context['title'] == "Test Letting"
     assert response.context['address'] == address
-

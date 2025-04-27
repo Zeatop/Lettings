@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Profile
-import sentry_sdk
 
 
 # Sed placerat quam in pulvinar commodo. Nullam laoreet consectetur ex,

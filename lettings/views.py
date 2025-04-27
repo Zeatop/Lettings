@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Letting
-import sentry_sdk
 
 
 # Aenean leo magna, vestibulum et tincidunt fermentum, consectetur quis velit.
