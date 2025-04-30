@@ -7,7 +7,7 @@ env:
   my_token: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   build-and-test:
-    runs-on: ubuntu:latest
+    runs-on: [ubuntu-22.04, ubuntu-20.04]
     steps:
       - uses: actions/checkout@v4
       
