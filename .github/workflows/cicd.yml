@@ -28,7 +28,7 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           echo ${{ secrets.DOCKER_PASSWD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker tag python-lettings:$COMMIT_HASH your-registry/python-lettings:$COMMIT_HASH
+          docker tag python-lettings:$COMMIT_HASH leojackson999/python-lettings:$COMMIT_HASH
           docker push leojackson999/python-lettings:$COMMIT_HASH
 
   # deploymment:
