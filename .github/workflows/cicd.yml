@@ -6,11 +6,30 @@ on:
 env:
   my_token: ${{ secrets.GITHUB_TOKEN }}
 jobs:
-  test:
-    container:
-      image: 
-  build:
-    needs: test
-    
-  deploymment:
-    needs: build
+  build-and-test:
+    runs-on: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set commit hash
+        run: echo "COMMIT_HASH=$(git log -1 --format=%h)" >> $GITHUB_ENV
+      
+      - name: Build Docker image
+        run: |
+          docker build -t python-lettings:$COMMIT_HASH --build-arg GIT_COMMIT=$COMMIT_HASH .
+          echo "Build successful"
+      
+      - name: Run tests in Docker container
+        run: |
+          docker run --rm python-lettings:$COMMIT_HASH python -m pytest --cov=.
+          echo "Tests passed"
+      
+      - name: Push to registry
+        if: github.event_name != 'pull_request'
+        run: |
+          echo ${{ secrets.DOCKER_PASSWD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          docker tag python-lettings:$COMMIT_HASH your-registry/python-lettings:$COMMIT_HASH
+          docker push leojackson999/python-lettings:$COMMIT_HASH
+
+  # deploymment:
+  #   needs: build
