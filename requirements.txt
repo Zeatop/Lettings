@@ -6,3 +6,4 @@ six==1.17.0
 distutils-pytest
 sentry-sdk==2.26.1
 daphne==3.0.0
+whitenoise==5.3.0
