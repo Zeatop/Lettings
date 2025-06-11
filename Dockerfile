@@ -9,4 +9,4 @@ ARG GIT_COMMIT=unspecified
 LABEL git_commit=$GIT_COMMIT
 EXPOSE 8000
 ENTRYPOINT ["/code/entrypoint.sh"]
-CMD ["python", "daphne", "oc_lettings_site.asgi:application"]
+CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "oc_lettings_site.asgi:application"]
