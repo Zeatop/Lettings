@@ -5,6 +5,7 @@ WORKDIR /code
 COPY . .
 RUN pip install setuptools
 RUN pip install --no-cache-dir -r requirements.txt
+RUN chmod +x /code/entrypoint.sh
 ARG GIT_COMMIT=unspecified
 LABEL git_commit=$GIT_COMMIT
 EXPOSE 8000
