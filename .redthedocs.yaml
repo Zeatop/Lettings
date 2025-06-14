@@ -9,9 +9,7 @@ build:
     post_create_environment:
       # Installation des dépendances pour Sphinx uniquement
       - pip install sphinx==8.2.3 alabaster==1.0.0
-    post_install:
-      # Pas besoin d'installer Django et autres dépendances pour la doc
-      - echo "Documentation build ready"
+
 
 # Configuration Sphinx
 sphinx:
@@ -27,4 +25,4 @@ formats:
 # Configuration Python
 python:
   install:
-    - requirements: docs-require
+    - requirements: docs-requirements.txt
