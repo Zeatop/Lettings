@@ -65,9 +65,6 @@ Application Lettings
    :undoc-members:
    :show-inheritance:
 
-* ``Address`` : Adresse physique (numéro, rue, ville, état, code postal, pays)
-* ``Letting`` : Location avec titre et adresse associée
-
 **Vues :**
 
 .. automodule:: lettings.views
@@ -75,18 +72,12 @@ Application Lettings
    :undoc-members:
    :show-inheritance:
 
-* ``lettings_index`` : Liste de toutes les locations
-* ``letting`` : Détail d'une location spécifique
-
 **URLs :**
 
 .. automodule:: lettings.urls
    :members:
    :undoc-members:
    :show-inheritance:
-
-* ``/lettings/`` : Index des locations
-* ``/lettings/<letting_id>/`` : Détail d'une location
 
 **Templates :**
 
@@ -103,17 +94,12 @@ Application Profiles
    :undoc-members:
    :show-inheritance:
 
-* ``Profile`` : Profil utilisateur avec ville favorite
-
 **Vues :**
 
 .. automodule:: profiles.views
    :members:
    :undoc-members:
    :show-inheritance:
-
-* ``profiles_index`` : Liste de tous les profils
-* ``profile`` : Détail d'un profil spécifique
 
 **URLs :**
 
@@ -122,38 +108,7 @@ Application Profiles
    :undoc-members:
    :show-inheritance:
 
-* ``/profiles/`` : Index des profils
-* ``/profiles/<username>/`` : Détail d'un profil
-
 **Templates :**
 
 * ``profiles_index.html`` : Liste des profils
 * ``profile.html`` : Détail d'un profil
-
-Base de données
-===============
-
-Modèle de données
------------------
-
-**Table Address :**
-
-* ``id`` : Clé primaire auto-incrémentée
-* ``number`` : Numéro de rue (entier positif, max 9999)
-* ``street`` : Nom de rue (max 64 caractères)
-* ``city`` : Ville (max 64 caractères)
-* ``state`` : État (2 caractères)
-* ``zip_code`` : Code postal (entier positif, max 99999)
-* ``country_iso_code`` : Code pays ISO (3 caractères)
-
-**Table Letting :**
-
-* ``id`` : Clé primaire auto-incrémentée
-* ``title`` : Titre de la location (max 256 caractères)
-* ``address_id`` : Clé étrangère vers Address (OneToOne)
-
-**Table Profile :**
-
-* ``id`` : Clé primaire auto-incrémentée
-* ``user_id`` : Clé étrangère vers User Django (OneToOne)
-* ``favorite_city`` : Ville favorite (max 64 caractères, optionnel)
