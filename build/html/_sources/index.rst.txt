@@ -32,7 +32,6 @@ Orange County Lettings est une application web Django dédiée à la gestion de 
 * SQLite (base de données)
 * Bootstrap (interface utilisateur)
 * Sentry (monitoring)
-* Docker (containerisation)
 * GitHub Actions (CI/CD)
 * Render (hébergement)
 
@@ -85,6 +84,11 @@ Le site sera accessible à l'adresse : http://localhost:8000
 
 Panel d'administration
 ----------------------
+
+Créez un superuser:
+
+.. code-block:: bash
+   python manage.py createsuperuser
 
 Accédez au panel d'administration à l'adresse : http://localhost:8000/admin
 
@@ -198,32 +202,6 @@ Modèle de données
 * ``user_id`` : Clé étrangère vers User Django (OneToOne)
 * ``favorite_city`` : Ville favorite (max 64 caractères, optionnel)
 
-Migrations
-----------
-
-Le projet utilise un système de migrations pour séparer les modèles de l'application principale vers les applications spécialisées :
-
-* ``lettings/migrations/0001_initial.py`` : Migration des modèles Address et Letting
-* ``profiles/migrations/0001_initial.py`` : Migration du modèle Profile
-* ``oc_lettings_site/migrations/0003_auto_20250606_1405.py`` : Suppression des anciens modèles
-
-Commandes utiles
-----------------
-
-.. code-block:: bash
-
-   # Accéder à la base de données SQLite
-   sqlite3 oc-lettings-site.sqlite3
-   
-   # Voir les tables
-   .tables
-   
-   # Voir la structure d'une table
-   pragma table_info(lettings_address);
-   
-   # Requête d'exemple
-   select user_id, favorite_city from profiles_profile where favorite_city like 'B%';
-
 Déploiement
 ===========
 
@@ -287,18 +265,6 @@ Framework de tests
 ------------------
 
 Le projet utilise **pytest** avec **pytest-django** pour les tests.
-
-Configuration des tests
-------------------------
-
-**Fichier ``setup.cfg`` :**
-
-.. code-block:: ini
-
-   [tool:pytest]
-   DJANGO_SETTINGS_MODULE = oc_lettings_site.settings
-   python_files = tests.py
-   addopts = -v
 
 Exécution des tests
 -------------------
@@ -394,14 +360,6 @@ Le projet utilise **Sentry SDK** pour le monitoring des erreurs et des performan
        environment="development",
    )
 
-**Fonctionnalités Sentry :**
-
-* Capture automatique des erreurs Django
-* Profiling des performances
-* Tracking des transactions
-* Association des erreurs aux utilisateurs
-* Environnements séparés (development/production)
-
 Endpoint de test
 ----------------
 
@@ -477,124 +435,3 @@ Versions et compatibilité
 * **Base de données :** SQLite 3
 * **Serveur :** Daphne (ASGI)
 * **Conteneur :** Docker avec Alpine Linux
-
-Contribution et développement
-=============================
-
-Workflow de développement
---------------------------
-
-1. **Fork** du repository
-2. **Création** d'une branche feature
-3. **Développement** avec tests
-4. **Linting** avec flake8
-5. **Tests** avec pytest
-6. **Pull request** vers master
-7. **Review** et merge
-8. **Déploiement** automatique
-
-Bonnes pratiques
-----------------
-
-* Écrire des tests pour toute nouvelle fonctionnalité
-* Respecter le style de code (flake8)
-* Documenter les nouvelles APIs
-* Utiliser des messages de commit explicites
-* Tester en local avant de pousser
-
-Standards de code
------------------
-
-* **Longueur de ligne :** Maximum 99 caractères
-* **Format :** PEP 8 pour Python
-* **Documentation :** Docstrings pour les fonctions publiques
-* **Tests :** Coverage minimum de 80%
-
-Troubleshooting
-===============
-
-Problèmes courants
-------------------
-
-**Erreur d'import Django :**
-
-.. code-block:: bash
-
-   # Vérifier l'activation de l'environnement virtuel
-   which python
-   pip install django
-
-**Base de données non trouvée :**
-
-.. code-block:: bash
-
-   python manage.py migrate
-
-**Erreur de permissions (Docker) :**
-
-.. code-block:: bash
-
-   chmod +x entrypoint.sh
-
-**Tests qui échouent :**
-
-.. code-block:: bash
-
-   # Vérifier les dépendances
-   pip install -r requirements.txt
-   
-   # Nettoyer les fichiers de cache
-   find . -name "*.pyc" -delete
-   find . -name "__pycache__" -delete
-
-Logs et debugging
------------------
-
-**Logs Django (développement) :**
-
-.. code-block:: python
-
-   # Dans settings.py
-   DEBUG = True
-   
-   # Logs détaillés
-   LOGGING = {
-       'version': 1,
-       'disable_existing_loggers': False,
-       'handlers': {
-           'console': {
-               'class': 'logging.StreamHandler',
-           },
-       },
-       'loggers': {
-           'django': {
-               'handlers': ['console'],
-               'level': 'INFO',
-           },
-       },
-   }
-
-**Logs Docker :**
-
-.. code-block:: bash
-
-   # Voir les logs du conteneur
-   docker logs <container_id>
-   
-   # Mode interactif
-   docker run -it python-lettings:latest /bin/sh
-
-Support et contact
-==================
-
-**Repository GitHub :** https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR
-
-**Documentation technique :** Cette documentation Sphinx
-
-**Issues et bugs :** GitHub Issues du repository
-
-**Monitoring :** Dashboard Sentry pour les erreurs en production
-
----
-
-*Documentation générée automatiquement le 14 juin 2025*
