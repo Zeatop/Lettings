@@ -8,8 +8,9 @@ Orange County Lettings Documentation
 
 Bienvenue dans la documentation du site web Orange County Lettings, une plateforme de gestion de locations de vacances.
 
-.. contents:: Table des matières
-   :depth: 2
+.. toctree::
+   :maxdepth: 2
+   :caption: Table des matières:
 
    installation
    deploiment
