@@ -39,6 +39,7 @@ Projet OC_Lettings
    :undoc-members:
 
 **Vues :**
+
 .. automodule:: oc_lettings_site.views
    :members:
    :undoc-members:
