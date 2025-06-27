@@ -38,6 +38,7 @@ Orange County Lettings est une application web Django dédiée à la gestion de 
    installation
    deploiement
    applications
+   modules
    API
    tests
    monitoring
