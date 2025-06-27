@@ -1,10 +1,16 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+import os
+import sys
+import django
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+# chemins vers le code source
+sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../lettings'))
+sys.path.insert(0, os.path.abspath('../profiles'))
+sys.path.insert(0, os.path.abspath('../oc_lettings_site'))
+
+# Configuration Django pour autodoc
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oc_lettings_site.settings')
+django.setup()
 
 project = 'Lettings'
 copyright = '2025, Leo Jackson'
@@ -24,6 +30,18 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 language = 'fr'
+
+autodoc_default_options = {
+    'members': True,           # Inclure tous les membres
+    'member-order': 'bysource',  # Ordre d'apparition dans le code
+    'special-members': '__init__',  # Inclure __init__
+    'undoc-members': True,     # Inclure les membres sans docstring
+    'exclude-members': '__weakref__'  # Exclure __weakref__
+}
+
+# Configuration autosummary
+autosummary_generate = True
+autosummary_imported_members = True
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

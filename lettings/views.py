@@ -8,6 +8,31 @@ from .models import Letting
 # orci luctus et ultrices posuere cubilia curae; Cras eget scelerisque
 def lettings_index(request):
 
+    """
+    Vue de la page d'index des locations.
+
+    Affiche la liste de toutes les locations disponibles dans le système.
+
+    Args:
+        request (HttpRequest): Objet de requête Django contenant les métadonnées
+                              de la requête HTTP.
+
+    Returns:
+        HttpResponse: Réponse HTTP avec le template rendu contenant la liste
+                     des locations.
+
+    Template:
+        lettings_index.html
+
+    Context:
+        lettings_list (QuerySet): Liste de tous les objets Letting.
+
+    Examples:
+        >>> # Accès via URL: /lettings/
+        >>> response = lettings_index(request)
+        >>> assert response.status_code == 200
+    """
+
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
     return render(request, 'lettings_index.html', context)
@@ -24,6 +49,30 @@ def lettings_index(request):
 # Mauris condimentum auctor elementum. Donec quis nisi ligula. Integer vehicula tincidunt enim,
 # ac lacinia augue pulvinar sit amet.
 def letting(request, letting_id):
+
+    """
+    Vue de détail d'une location spécifique.
+
+    Affiche les informations détaillées d'une location identifiée par son ID,
+    incluant le titre et l'adresse complète.
+
+    Args:
+        request (HttpRequest): Objet de requête Django contenant les métadonnées
+                              de la requête HTTP.
+        letting_id (int): Identifiant unique de la location à afficher.
+
+    Returns:
+        HttpResponse: Réponse HTTP avec le template rendu contenant les détails
+                     de la location.
+
+    Examples:
+        >>> # Accès via URL: /lettings/1/
+        >>> response = letting(request, 1)
+        >>> assert response.status_code == 200
+        >>> assert 'title' in response.context
+        >>> assert 'address' in response.context
+    """
+
     letting = Letting.objects.get(pk=letting_id)
     context = {
         'title': letting.title,

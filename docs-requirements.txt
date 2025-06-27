@@ -2,3 +2,7 @@
 sphinx==8.2.3
 alabaster==1.0.0
 sphinx_rtd_theme
+# Django et dépendances pour autodoc
+django==3.0
+six==1.17.0
+sentry-sdk==2.26.1
