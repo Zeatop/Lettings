@@ -37,15 +37,30 @@ Application Lettings
 
 **Modèles :**
 
+.. automodule:: lettings.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 * ``Address`` : Adresse physique (numéro, rue, ville, état, code postal, pays)
 * ``Letting`` : Location avec titre et adresse associée
 
 **Vues :**
 
+.. automodule:: lettings.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 * ``lettings_index`` : Liste de toutes les locations
 * ``letting`` : Détail d'une location spécifique
 
 **URLs :**
+
+.. automodule:: lettings.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 * ``/lettings/`` : Index des locations
 * ``/lettings/<letting_id>/`` : Détail d'une location
@@ -60,14 +75,29 @@ Application Profiles
 
 **Modèles :**
 
+.. automodule:: profiles.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 * ``Profile`` : Profil utilisateur avec ville favorite
 
 **Vues :**
+
+.. automodule:: profiles.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 * ``profiles_index`` : Liste de tous les profils
 * ``profile`` : Détail d'un profil spécifique
 
 **URLs :**
+
+.. automodule:: profiles.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 * ``/profiles/`` : Index des profils
 * ``/profiles/<username>/`` : Détail d'un profil
