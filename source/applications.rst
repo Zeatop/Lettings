@@ -29,6 +29,28 @@ Le fichier ``oc_lettings_site/settings.py`` contient la configuration principale
 * **Fichiers statiques :** gérés par WhiteNoise
 * **Monitoring :** intégration Sentry SDK
 
+Projet OC_Lettings
+===================
+
+**Settings :**
+
+.. automodule:: oc_lettings_site.settings
+   :members:
+   :undoc-members:
+
+**Vues :**
+.. automodule:: oc_lettings_site.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+**URLs :**
+
+.. automodule:: oc_lettings_site.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Applications Django
 ===================
 

@@ -118,7 +118,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static",]
 
+"""
+Configuration du monitoring Sentry pour la capture d'erreurs et de performances.
 
+Sentry est configuré pour capturer automatiquement les erreurs Django,
+surveiller les performances des transactions, et associer les erreurs
+aux utilisateurs pour un debugging facilité.
+
+Variables configurées :
+- DSN : Identifiant unique du projet Sentry
+- traces_sample_rate : Pourcentage de transactions à surveiller (1.0 = 100%)
+- profiles_sample_rate : Pourcentage de profils de performance à capturer
+- send_default_pii : Inclusion des informations personnelles utilisateur
+- environment : Environnement d'exécution (development/production)
+"""
 # Config sentry
 sentry_key_part1 = "https://505a28f623ff3376de2f4092d8515558@"
 sentry_key_part2 = "o4509147190460416.ingest.de.sentry.io/4509162976182352"
