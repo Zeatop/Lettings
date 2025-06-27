@@ -6,20 +6,6 @@
 Orange County Lettings Documentation
 ====================================
 
-Bienvenue dans la documentation du site web Orange County Lettings, une plateforme de gestion de locations de vacances.
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Table des matières:
-
-   installation
-   deploiement
-   applications
-   API
-   tests
-   monitoring
-
-
 Vue d'ensemble
 ==============
 
@@ -42,6 +28,20 @@ Orange County Lettings est une application web Django dédiée à la gestion de 
 * Sentry (monitoring)
 * GitHub Actions (CI/CD)
 * Render (hébergement)
+
+Bienvenue dans la documentation du site web Orange County Lettings.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Table des matières:
+
+   installation
+   deploiement
+   applications
+   API
+   tests
+   monitoring
+
 
 Dépendances
 ===========
