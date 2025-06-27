@@ -1,4 +1,4 @@
 # Dépendances minimales pour construire la documentation Sphinx
 sphinx==8.2.3
 alabaster==1.0.0
-sphinx_rtd_theme==2.0.0
+sphinx_rtd_theme

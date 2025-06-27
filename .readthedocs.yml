@@ -8,7 +8,7 @@ build:
   jobs:
     post_create_environment:
       # Installation des dépendances pour Sphinx uniquement
-      - pip install sphinx==8.2.3 alabaster==1.0.0 sphinx_rtd_theme==2.0.0
+      - pip install sphinx==8.2.3 alabaster==1.0.0 sphinx_rtd_theme
 
 
 # Configuration Sphinx
