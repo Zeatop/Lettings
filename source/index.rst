@@ -13,7 +13,7 @@ Bienvenue dans la documentation du site web Orange County Lettings, une platefor
    :caption: Table des matières:
 
    installation
-   deploiment
+   deploiement
    applications
    API
    tests
