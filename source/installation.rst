@@ -51,9 +51,10 @@ Panel d'administration
 Créez un superuser:
 
 .. code-block:: bash
+
    python manage.py createsuperuser
 
 Accédez au panel d'administration à l'adresse : http://localhost:8000/admin
 
-* **Utilisateur :** admin
-* **Mot de passe :** Abc1234!
+* **Utilisateur :** votreIDAdmin
+* **Mot de passe :** votreMDPAdmin
