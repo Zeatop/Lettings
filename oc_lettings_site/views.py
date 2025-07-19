@@ -31,7 +31,6 @@ def index(request):
         >>> response = index(request)
         >>> assert response.status_code == 200
         >>> assert 'Orange County Lettings' in response.content.decode()
-        
     """
 
     return render(request, 'index.html')

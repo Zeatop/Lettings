@@ -39,6 +39,6 @@ Patterns d'URLs définis :
 - '' : Page d'accueil (vue index)
 - 'admin/' : Interface d'administration Django
 - 'lettings/' : URLs de l'application lettings
-- 'profiles/' : URLs de l'application profiles  
+- 'profiles/' : URLs de l'application profiles
 - 'sentry-debug/' : Endpoint de test pour Sentry (développement uniquement)
 """
